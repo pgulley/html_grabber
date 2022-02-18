@@ -1,0 +1,26 @@
+{
+
+  "manifest_version": 2,
+  "name": "text_grabber",
+  "version": "1.0",
+
+  "description": "grabs text and metadata from all encounters on the web",
+
+  "background":{
+    "scripts":["grabber-bk.js"]
+  },
+
+  "content_scripts": [
+    {
+      "matches":["<all_urls>"],
+      "js": ["jquery.min.js","grabber.js"]
+    }
+  ],
+  "permissions":[
+    "storage",
+    "unlimitedStorage",
+    "downloads",
+    "alarms"
+  ]
+
+}
