@@ -7,7 +7,7 @@ download_storage = function(){
 	getting_storage.then(function(items){
 
 		if(Object.keys(items).length > 0){
-
+			console.log(`Found ${Object.keys(items).length} records`)
 			//Wrangle the data into a single byte object and get a url for it
 			const str = JSON.stringify(items);
 			const bytes = new TextEncoder().encode(str);
@@ -31,15 +31,9 @@ download_storage = function(){
 			//refresh the existing data
 			keys = Object.keys(items)
 			removing = browser.storage.local.remove(keys)
-			removing.then(function(){
-				console.log("Success")
-			},function(){
-				console.log("Error")
-			})
 		}
 		else{
-			console.log("not enough items?")
-			console.log(Object.keys(items).length)
+			console.log("Found no items to Download")
 		}
 
 	}, function(error){
